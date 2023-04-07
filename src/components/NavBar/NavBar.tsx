@@ -12,7 +12,8 @@ import {
   SlSocialFacebook,
 } from "react-icons/sl";
 
-import logo from "../../assets/img/logo.svg";
+import logo from "../../assets/LOGO-JUAN.png";
+import { Button } from "react-bootstrap";
 
 /*import navIcon1 from '../../assets/img/nav-icon1.svg'
 import navIcon2 from '../../assets/img/nav-icon2.svg'
@@ -22,36 +23,53 @@ function BasicExample() {
   const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = () => {
-    const offset = window.scrollY;
-
-    if (offset > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
+    let prevScrollpos: any = window.pageYOffset;
+    //console.log(`1 ${prevScrollpos}`);
+    window.onscroll = function () {
+      let currentScrollPos = window.pageYOffset;
+      //console.log(`2 ${currentScrollPos}`);
+      if (prevScrollpos > currentScrollPos) {
+        setScrolled(false);
+      } else {
+        setScrolled(true);
+        setTimeout(() => {
+          setScrolled(false);
+        }, 600);
+      }
+      prevScrollpos = currentScrollPos;
+    };
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.onscroll = null;
     };
   }, []);
 
   return (
     <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">
-          <img
-            style={{
-              width: "100px",
-            }}
-            src={logo}
-            alt="Logo"
-          />
+      <Container
+        style={{
+          maxWidth: "95%",
+          display: scrolled ? "none" : "flex",
+        }}
+      >
+        <Navbar.Brand
+          href="#home"
+          style={{
+            marginRight: "65px",
+          }}
+        >
+          <img className="image" src={logo} alt="Logo" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav">
-          <span className="navbar-toggler-icon"></span>
+        <Navbar.Toggle
+          style={{
+            border: "1px solid #000",
+          }}
+          aria-controls="basic-navbar-nav"
+        >
+          <span id="lines" className="navbar-toggler-icon"></span>
         </Navbar.Toggle>
         <Navbar.Collapse className="letter" id="basic-navbar-nav ">
           <motion.div
@@ -90,23 +108,24 @@ function BasicExample() {
             <span className="navbar-text">
               <div className="social-icons">
                 <a href="">
-                  <SlSocialInstagram />
+                  <SlSocialTwitter className="twitter-icon" />
                 </a>
                 <a href="">
-                  <SlSocialTwitter />
+                  <SlSocialInstagram className="instagram-icon" />
                 </a>
                 <a href="">
-                  <SlSocialFacebook />
+                  <SlSocialFacebook className="facebook-icon" />
                 </a>
               </div>
-              <button
-                className="vvd"
-                onClick={() => {
-                  console.log("Hello World");
+              <Button
+                style={{
+                  border: "1px solid #3978bf",
+                  color: "#3978bf",
                 }}
+                variant="outline-info"
               >
                 Vamos a conectar
-              </button>
+              </Button>{" "}
             </span>
           </motion.div>
         </Navbar.Collapse>

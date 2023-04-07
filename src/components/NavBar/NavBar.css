@@ -4,14 +4,21 @@
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
-  background-color: #f5f5f5;
+  /**background-color: #f5f5f5;
   gap: 1rem;
-  max-width: 320px;
+  max-width: 400px;
+  
   /* margin-bottom: 1rem;
   border-radius: 0.25rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);*/
 }
 
+
+.image {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+}
 .social-icons {
   display: flex;
   justify-content: center;
@@ -24,13 +31,78 @@
   margin-left: 0px;
 }
 
+
+@media (max-width: 990px) {
+  .image {
+    width: 120px;
+    height: 45px;
+  }
+  .navbar-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
 @media (min-width: 990px) {
   .letter {
     margin-top: 0px;
     margin-left: 40px;
+    flex-grow: initial;
+  }
+
+}
+
+@media(min-width: 1050px) {
+  .navbar-text {
+    margin-left: 40px;
   }
 }
 
+
+@media(min-width: 1200px) {
+  .navbar-text {
+    margin-left: 120px;
+  }
+}
+
+@media(min-width: 1400px) {
+  .navbar-text {
+    margin-left: 280px;
+  }
+}
+
+@media(min-width: 1500px) {
+  .navbar-text {
+    margin-left: 320px;
+  }
+}
+
+#lines{
+  border-bottom: 2px solid #000;
+}
+
+#lines::after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  margin-top: 1px;
+}
+
+#lines::before{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  margin-top: 1px;
+}
+
+/*
 .hola {
   display: "block";
 }
@@ -38,5 +110,57 @@
 @media (min-width: 990px) {
   .hola {
     display: "none";
+  }
+}*/
+
+.instagram-icon {
+  width: 21px;
+  height: 21px;
+  fill: #e1306c;
+  stroke: #ffffff;
+  stroke-width: 2;
+  filter: saturate(1.5) brightness(1.2);
+  transform: translateY(0);
+  animation: float 2s ease-in-out 1s infinite, fade-in 1s ease-out;
+}
+
+.facebook-icon {
+  width: 22px;
+  height: 22px;
+  fill: #3b5998;
+  filter: saturate(1.5) brightness(1.2);
+  transform: translateY(0);
+  animation: float 2s ease-in-out 1s infinite, fade-in 1s ease-out;
+}
+
+.twitter-icon {
+  width: 21px;
+  height: 21px;
+  fill: #1da1f2;
+  filter: saturate(1.5) brightness(1.2);
+  transform: translateY(0);
+  animation: float 2s ease-in-out 1s infinite, fade-in 1s ease-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0.2;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

@@ -1,0 +1,59 @@
+/* Define el contenedor principal */
+.flip-container {
+  perspective: 1000px;
+  width: 335px;
+  height: 335px;
+  position: relative;
+  margin: 0 auto;
+}
+
+@media(min-width:908px){
+  .flip-container {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+/* Define los dos elementos que giran */
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.5s;
+  transform-style: preserve-3d;
+}
+
+/* Define el estado inicial de los elementos */
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Define la imagen para el elemento frontal */
+
+
+.front {
+  border-radius: 50%;
+  background-image: url('../../assets/profile.png');
+  background-size: cover;
+  background-position: center;
+
+}
+
+
+/* Define la imagen para el elemento trasero */
+.back {
+  border-radius: 50%;
+  background-image: url('../../assets/LOGOIMAGE.png');
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(180deg);
+}
+
+/* Define la animación de flip */
+.flip-container.flipping .flipper {
+  transform: rotateY(180deg);
+}
