@@ -4,38 +4,10 @@ import { SlArrowRightCircle } from "react-icons/sl";
 
 import "./Banner.css";
 
+import { TextRotation } from "./TxtRotation";
+
 export const Banner = () => {
   const [flipped, setFlipped] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [isDeliting, setisDeliting] = useState(false);
-
-  const [text, setText] = useState("Político");
-  const period = 2000;
-  const toRotate = ["Político","Ambientalista","Llanero",];
-
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      if (loopNum === toRotate.length) {
-        setLoopNum(0);
-      }
-      const i = loopNum % toRotate.length;
-      const fullText = toRotate[i];
-      if (isDeliting) {
-        setText(fullText.substring(0, text.length - 1));
-      } else {
-        setText(fullText.substring(0, text.length + 1));
-      }
-      if (!isDeliting && text === fullText) {
-        setTimeout(() => {
-          setisDeliting(true);
-        }, period);
-      } else if (isDeliting && text === "") {
-        setisDeliting(false);
-        setLoopNum(loopNum + 1);
-      }
-    }, 200);
-    return () => clearInterval(ticker);
-  }, [loopNum, isDeliting, text]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -59,25 +31,24 @@ export const Banner = () => {
               style={{
                 fontSize: "2.2rem",
                 fontWeight: "bold",
+                filter: "drop-shadow(0px 0px 1.2px #1da1f2)",
                 //textAlign: "justify",
               }}
             >
-              {`Hola, soy Juan José Cubides`} {/*<br />*/}
-              <span className="wrap">{text}
-              
-              </span>
+              {`Juan José Cubides Monje: `} {/*<br />*/}
+              <TextRotation />
               {/* politico, llanero, abogado, activista, ambientalista */}
             </h1>
             <p
               style={{
-                fontSize: "1.2rem",
+                fontSize: "1.08rem",
                 textAlign: "justify",
               }}
             >
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos
-              minima dolore veritatis ipsam tempore ducimus non blanditiis, fuga
-              voluptas saepe doloremque a, commodi delectus adipisci voluptate
-              obcaecati eligendi itaque facilis!
+              ¿Quieres conocer a un joven <b>comprometido</b> que está generando
+              un gran impacto en nuestra ciudad?. ¡<b>Acompáñanos</b> para
+              conocer más sobre su trabajo y cómo podemos seguir caminando
+              juntos para construir la <b>Villavicencio</b> que tanto anhelemos!
             </p>
 
             <button

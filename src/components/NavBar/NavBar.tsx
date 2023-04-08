@@ -48,7 +48,22 @@ function BasicExample() {
   }, []);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar
+      style={{
+        /*position: "fixed",
+        width: "100%",
+        zIndex: 100,*/
+        backgroundColor: "#fff",
+        transition: "all 0.5s ease-in-out",
+        boxShadow: "0 0 10px rgba(0,0,0,0.8)",
+        borderBottomRightRadius: "8px",
+        borderBottomLeftRadius: "8px",
+
+        //transform: scrolled ? "translateY(-100%)" : "translateY(0)",
+      }}
+      bg="light"
+      expand="lg"
+    >
       <Container
         style={{
           maxWidth: "95%",
@@ -63,6 +78,17 @@ function BasicExample() {
         >
           <img className="image" src={logo} alt="Logo" />
         </Navbar.Brand>
+        <div className="social-icons">
+          <a href="">
+            <SlSocialTwitter className="twitter-icon" />
+          </a>
+          <a href="">
+            <SlSocialInstagram className="instagram-icon" />
+          </a>
+          <a href="">
+            <SlSocialFacebook className="facebook-icon" />
+          </a>
+        </div>
         <Navbar.Toggle
           style={{
             border: "1px solid #000",
@@ -84,16 +110,33 @@ function BasicExample() {
             }}
             transition={{ duration: 0.8 }}
           >
-            <Nav className="me-auto">
+            <Nav className="me-auto navbar-text">
               <Nav.Link id="inicio" href="#inicio">
                 Inicio
               </Nav.Link>
               <Nav.Link href="#conoceme">Conócome</Nav.Link>
-              <Nav.Link href="#proyectos">Proyectos</Nav.Link>
+              {/*<Nav.Link href="#proyectos">Proyectos</Nav.Link>*/}
               <Nav.Link href="#apoyanos">Apóyanos</Nav.Link>
               <Nav.Link href="#newsletter">Newsletter</Nav.Link>
+              <span className="text">
+                {/*<div className="social-icons">
+                <a href="">
+                  <SlSocialTwitter className="twitter-icon" />
+                </a>
+          */}
+                <Button
+                  style={{
+                    border: "1px solid #3978bf",
+                    color: "#3978bf",
+                  }}
+                  variant="outline-info"
+                >
+                  Vamos a conectar
+                </Button>{" "}
+              </span>
             </Nav>
           </motion.div>
+
           <motion.div
             initial={{
               y: -100,
@@ -104,9 +147,17 @@ function BasicExample() {
               opacity: 1,
             }}
             transition={{ duration: 0.8 }}
-          >
-            <span className="navbar-text">
-              <div className="social-icons">
+          ></motion.div>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
+
+export default BasicExample;
+
+{
+  /*<div className="social-icons">
                 <a href="">
                   <SlSocialTwitter className="twitter-icon" />
                 </a>
@@ -116,22 +167,5 @@ function BasicExample() {
                 <a href="">
                   <SlSocialFacebook className="facebook-icon" />
                 </a>
-              </div>
-              <Button
-                style={{
-                  border: "1px solid #3978bf",
-                  color: "#3978bf",
-                }}
-                variant="outline-info"
-              >
-                Vamos a conectar
-              </Button>{" "}
-            </span>
-          </motion.div>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+              </div>*/
 }
-
-export default BasicExample;
