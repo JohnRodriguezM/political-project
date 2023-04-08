@@ -83,11 +83,13 @@ export const CarouselComponent = (props: any) => {
       <h1
         style={{
           width: "98%",
+          //marginTop: "30px",
+
           textAlign: "center",
           fontWeight: "bold",
           letterSpacing: " 0.8px",
           lineHeight: " 1",
-          margin: "25px auto",
+          margin: "35px auto",
           display: "block",
           fontSize: "2rem",
           filter: "drop-shadow(0px 0px 1.2px #1da1f2)",
