@@ -18,6 +18,7 @@ import { Button } from "react-bootstrap";
 /*import navIcon1 from '../../assets/img/nav-icon1.svg'
 import navIcon2 from '../../assets/img/nav-icon2.svg'
 import navIcon3 from '../../assets/img/nav-icon3.svg'*/
+import { Link } from "react-router-dom";
 
 function BasicExample() {
   const [scrolled, setScrolled] = useState(false);
@@ -124,15 +125,18 @@ function BasicExample() {
                   <SlSocialTwitter className="twitter-icon" />
                 </a>
           */}
-                <Button
-                  style={{
-                    border: "1px solid #3978bf",
-                    color: "#3978bf",
-                  }}
-                  variant="outline-info"
-                >
-                  Vamos a conectar
-                </Button>{" "}
+
+                <Link to="/signin-admin">
+                  <Button
+                    style={{
+                      border: "1px solid #3978bf",
+                      color: "#3978bf",
+                    }}
+                    variant="outline-info"
+                  >
+                    Ingresa como Administrador
+                  </Button>{" "}
+                </Link>
               </span>
             </Nav>
           </motion.div>

@@ -51,12 +51,18 @@ export const eliminarRegistroPorId = async (id: number | string, setData: any) =
 
 
 export const eliminarTodosLosRegistros = async (setData: any, datos: any) => {
+  const ids = datos.map((dato: any) => dato.id);
+console.log(ids)
   const { data, error } = await supabase
     .from('registros')
     .delete()
-    .match({
-      nombreCompleto: datos.map((dato: any) => dato.nombreCompleto)
-    });
+    .in('id', ids);
+    /*.match({
+      id: ids,
+      nombreCompleto: datos.map((dato: any) => dato.nombreCompleto),
+      email: datos.map((dato: any) => dato.email),
+
+    });*/
 
   if (error) {
     console.error('Error eliminando los registros:', error.message);
@@ -64,7 +70,18 @@ export const eliminarTodosLosRegistros = async (setData: any, datos: any) => {
   }
 
   console.log('Registros eliminados exitosamente!');
-  setData([]);
+  console.log(data)
+
+  const { data: registrosActualizados, error: errorConsulta } = await supabase
+    .from('registros')
+    .select('*');
+
+  if (errorConsulta) {
+    console.error('Error obteniendo los registros actualizados:', errorConsulta.message);
+    return;
+  }
+  console.log(registrosActualizados)
+  setData(registrosActualizados);
 
 
 }
