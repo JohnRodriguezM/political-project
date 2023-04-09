@@ -516,10 +516,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .contact {
   /*border-radius: 25px;*/
   width: 100%;
-  margin: 50px auto;
-  background: linear-gradient(150.21deg, #1da1f2 -10.91%, #fff 150.58%);
-  padding: 60px 0 200px 0;
+  margin: 50px auto 45px auto;
+  background: linear-gradient(180deg, #1da1f2 0%, #1da1f2 100%);
+  padding: 60px 0 90px 0;
 }
+
 
 form {
   margin: 0 auto;
@@ -616,6 +617,8 @@ form {
 }
 .contact form button {
   margin-top: 20px;
+  width: 100%;
+  height: 50px;
   /*font-weight: 700;
   color: #000;
   background-color: #fff;

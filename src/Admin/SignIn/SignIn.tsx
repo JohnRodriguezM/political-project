@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 import contactImg from "../../assets/img/contact-img.svg";
-import { crearRegistro, fecthData } from "../../backend/supabase/client";
+import flecha from "../../assets/flecha-hacia-atras.png";
+import { Link } from "react-router-dom";
+
+import "./SignIn.css";
+import { signIn } from "../../backend/supabase/client";
 
 const initialFormState = {
-  nombreCompleto: "",
   email: "",
-  mensaje: "",
-  contacto: "",
-  apoyo: false,
+  password: "",
 };
 
-export const Contact = () => {
-
+const SignIn = () => {
   const [form, setForm] = useState(initialFormState);
-  const [status, setStatus] = useState(false);
-
-
 
   const handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -26,39 +23,49 @@ export const Contact = () => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    if (!form.nombreCompleto || !form.email) return;
+    if (!form.email) return;
     console.log(form);
-    crearRegistro(form);
     setForm(initialFormState);
-    setStatus(true);
-    setTimeout(() => {
+
+    signIn(form.email, form.password);
+    // setStatus(true);
+    /* setTimeout(() => {
       setStatus(false);
-    }, 1500);
+    }, 1500);*/
 
     setForm(initialFormState);
   };
 
   return (
     <>
-
-
-      <h2
+      <section
         style={{
-          width: "98%",
-          margin: "90px auto 0 auto",
-
-          textAlign: "center",
-          fontWeight: "bold",
-          letterSpacing: " 0.8px",
-          lineHeight: " 1",
-          display: "block",
-          fontSize: "2rem",
-          filter: "drop-shadow(0px 0px 1.2px #1da1f2)",
+          width: "100%",
+          margin: "0 auto",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          background: "linear-gradient(180deg, #1da1f2 0%, #1da1f2 100%)",
         }}
+        className="contact signIn"
+        id="connect"
       >
-        ¿Quieres formar parte de nuestro equipo?
-      </h2>
-      <section className="contact" id="connect">
+        <Link to="/">
+          <img
+            src={flecha}
+            style={{
+              width: "50px",
+              height: "50px",
+              position: "absolute",
+              top: "0",
+              left: "0",
+              margin: "1rem",
+            }}
+            alt=""
+          />
+        </Link>
         <Container>
           <Row className="align-items-center">
             <Col
@@ -70,18 +77,25 @@ export const Contact = () => {
               }}
               md={6}
             >
-              <img src={contactImg} alt="Contactanos" />
+              <img
+                style={{
+                  width: "100%",
+                  height: "100%",
+                }}
+                src={contactImg}
+                alt="Contactanos"
+              />
             </Col>
             <Col md={6}>
               <form onSubmit={handleSubmit}>
-                <label>Nombre Completo</label>
+                {/* <label>Nombre Completo</label>
                 <input
                   value={form.nombreCompleto}
                   required
                   onChange={handleChange}
                   type="text"
                   name="nombreCompleto"
-                />
+                />*/}
                 <label>Email</label>
                 <input
                   value={form.email}
@@ -90,22 +104,22 @@ export const Contact = () => {
                   type="email"
                   name="email"
                 />
-                <label>Mensaje</label>
+                {/* <label>Mensaje</label>
                 <textarea
                   value={form.mensaje}
                   onChange={handleChange}
                   name="mensaje"
-                />
-                <label>Contacto</label>
+                />*/}
+                <label>Contraseña</label>
                 <input
-                  value={form.contacto}
+                  value={form.password}
                   required
                   onChange={handleChange}
                   type="text"
-                  name="contacto"
+                  name="password"
                 />
 
-                <Form.Check
+                {/*<Form.Check
                   checked={form.apoyo}
                   style={{
                     marginTop: "1rem",
@@ -115,9 +129,16 @@ export const Contact = () => {
                   type="switch"
                   id="custom-switch"
                   label="¿Quieres que te contactemos?"
-                />
-                <Button variant="primary" type="submit">
-                  {status ? "Enviado" : "Enviar"}
+                />*/}
+                <Button
+                  style={{
+                    marginTop: "4rem",
+                    padding: "1rem 2rem 2rem 2rem",
+                  }}
+                  variant="primary"
+                  type="submit"
+                >
+                  Ingresar como Admin
                 </Button>
               </form>
             </Col>
@@ -128,15 +149,4 @@ export const Contact = () => {
   );
 };
 
-{
-  /*<a target="_blank" href="https://icons8.com/icon/9olD3EenFFRm/grupo-de-usuario">Grupo de usuario</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>*/
-}
-
-{
-  /*<iframe id="vakiIframe"
-title="Campaña Juan José Cubides"
-width="350"
-height="415"
-src="https://vaki.co/iframe/saNJqOMrpoI8IjW89ZkS">
-</iframe>*/
-}
+export default SignIn;
