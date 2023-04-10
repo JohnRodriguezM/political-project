@@ -52,11 +52,17 @@ export const Banner = () => {
             </p>
 
             <button
+               style={{
+                fontSize: "1rem",
+                fontWeight: "bold",
+                filter: "drop-shadow(0px 0px 1.2px #1da1f2)",
+                //textAlign: "justify",
+              }}
               onClick={() => {
                 console.log("Hola, vamos a conectar");
               }}
             >
-              Vamos a conectar{" "}
+              <b>Nuestro trabajo social </b>
               <span>
                 <SlArrowRightCircle />
               </span>

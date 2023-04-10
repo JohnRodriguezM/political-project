@@ -13,6 +13,8 @@ import Footer from "./components/Footer/Footer";
 import { supabase } from "./backend/supabase/client";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Apoyo from "./components/Apoyo/Apoyo";
+import Proyectos from "./components/Proyectos/Proyectos";
 
 function App() {
   const navigate = useNavigate();
@@ -43,7 +45,8 @@ function App() {
               <Banner />
               <CarouselComponent />
               <Contact />
-
+              <Apoyo />
+              <Proyectos />
               <Footer />
             </>
           }

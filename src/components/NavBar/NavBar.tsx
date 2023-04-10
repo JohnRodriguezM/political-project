@@ -6,19 +6,16 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import {
-  SlSocialInstagram,
-  SlSocialTwitter,
-  SlSocialFacebook,
-} from "react-icons/sl";
+import { SlSocialInstagram } from "react-icons/sl";
 
 import logo from "../../assets/LOGO-JUAN.png";
-import { Button } from "react-bootstrap";
+import { Button, NavDropdown } from "react-bootstrap";
 
 /*import navIcon1 from '../../assets/img/nav-icon1.svg'
 import navIcon2 from '../../assets/img/nav-icon2.svg'
 import navIcon3 from '../../assets/img/nav-icon3.svg'*/
 import { Link } from "react-router-dom";
+import { FaFacebook, FaTwitter } from "react-icons/fa";
 
 function BasicExample() {
   const [scrolled, setScrolled] = useState(false);
@@ -80,14 +77,17 @@ function BasicExample() {
           <img className="image" src={logo} alt="Logo" />
         </Navbar.Brand>
         <div className="social-icons">
-          <a href="">
-            <SlSocialTwitter className="twitter-icon" />
+          <a href="https://twitter.com/jjcubidesmonje" target="_blank">
+            <FaTwitter className="twitter-icon" />
           </a>
-          <a href="">
+          <a
+            href="https://www.instagram.com/juanjosecubidesmonje/"
+            target="_blank"
+          >
             <SlSocialInstagram className="instagram-icon" />
           </a>
-          <a href="">
-            <SlSocialFacebook className="facebook-icon" />
+          <a href="https://www.facebook.com/JuanJoseCubidesM/" target="_blank">
+            <FaFacebook className="facebook-icon" />
           </a>
         </div>
         <Navbar.Toggle
@@ -115,10 +115,24 @@ function BasicExample() {
               <Nav.Link id="inicio" href="#inicio">
                 Inicio
               </Nav.Link>
-              <Nav.Link href="#conoceme">Conócome</Nav.Link>
+              {/* <Nav.Link href="#conocenos">Conocenos</Nav.Link>*/}
               {/*<Nav.Link href="#proyectos">Proyectos</Nav.Link>*/}
-              <Nav.Link href="#apoyanos">Apóyanos</Nav.Link>
-              <Nav.Link href="#newsletter">Newsletter</Nav.Link>
+              <Nav.Link href="#apoyanos">Únetenos</Nav.Link>
+              <Nav.Link href="#newsletter">Apóyanos</Nav.Link>
+
+              <NavDropdown title="Conocenos" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.2">
+                  Nuestros enfoques de trabajo
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">
+                  Nuestros proyectos
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.1">
+                  Mi biografía
+                </NavDropdown.Item>
+              </NavDropdown>
+
               <span className="text">
                 {/*<div className="social-icons">
                 <a href="">
