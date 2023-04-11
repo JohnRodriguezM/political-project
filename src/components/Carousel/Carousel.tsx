@@ -7,6 +7,7 @@ import empoderemoslasjuventudes from "../../assets/empoderemoslajuventud.jpg";
 import sociedadcivil from "../../assets/sociedadcivil.jpg";
 import villavomasjusta from "../../assets/villavomasjusta.jpg";
 import ninez from "../../assets/niñez.jpg";
+import { Suspense } from "react";
 
 const form = [
   {
