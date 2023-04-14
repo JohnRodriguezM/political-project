@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import hola from "../../assets/JuanALotOfPeople.jpg";
-import hola2 from "../../assets/JuanWithChildren.jpg";
+import hola2 from "../../assets/JUAN.jpg";
 import hola3 from "../../assets/villavomasjusta.jpg";
 import hola4 from "../../assets/1.jpg";
 
