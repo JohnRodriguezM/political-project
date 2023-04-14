@@ -2,7 +2,7 @@ import React from "react";
 
 const Apoyo = () => {
   return (
-    <div>
+    <div id = "apoyanos">
       <h1
         style={{
           width: "98%",

@@ -44,27 +44,40 @@ const style = {
 const myIframes = [
   {
     src: hola,
+    publicacion:
+      "https://www.instagram.com/p/CX15aebLsX5/?utm_source=ig_web_copy_link",
+    title: "somos el puente entre la gente y el gobierno",
     style,
     TextPublicacion:
-      "Haciendo lo que más me gusta, somos el puente entre la gente que quiere ver a Villavicencio como una de las mejores ciudades del país.¡Gracias barrio la Reliquia! ¡Gracias a todos a quienes confían en nosotros y creen en nuestro proyecto! 🎄🎁 #unanuevamaneradeservir",
+      "Haciendo lo que más me gusta, somos el puente entre la gente que quiere ver a Villavicencio como una de las mejores ciudades del país.¡Gracias barrio la Reliquia! ¡Gracias a todos a quienes confían en nosotros!",
   },
   {
     src: hola2,
+    publicacion:
+      "https://www.instagram.com/reel/CoClVnejo4w/?utm_source=ig_web_copy_link",
+    title:
+      "Juntos podemos apostarle a un mejor futuro para nuestros niños y niñas",
     style,
     TextPublicacion:
-      "Juntos podemos apostarle a un mejor futuro para nuestros niños y niñas.Súmate a esta donaton y ayúdanos a llevar a los niños de Villavicencio sus útiles escolares antes de iniciar la jornada escolar.#RecuperemosVillavicencio #unanuevamaneradeservir",
+      "Juntos podemos apostarle a un mejor futuro para nuestros niños y niñas.Súmate a esta donaton y ayúdanos a llevar a los niños de Villavicencio sus útiles escolares antes de iniciar la jornada escolar.",
   },
   {
     src: hola3,
+    publicacion:
+      "https://www.instagram.com/p/Cafs0d7Fphl/?utm_source=ig_web_copy_link",
+    title: "Mi mayor compromiso es con la gente",
     style,
     TextPublicacion:
-      "Hoy mi domingo lo comparto con ellos, de esto se trata de brindar oportunidades, de adquirir nuevos conocimientos, para avanzar y para que los llaneros alcancen sus sueños, juntos por una mejor Villavicencio ! #unanuevamaneradeservir",
+      "Hoy mi domingo lo comparto con ellos, de esto se trata de brindar oportunidades, de adquirir nuevos conocimientos, para avanzar y para que los llaneros alcancen sus sueños, juntos por una mejor Villavicencio",
   },
   {
     src: hola4,
+    publicacion:
+      "https://www.instagram.com/p/CX32P7srD4G/?utm_source=ig_web_copy_link",
+    title: "Construyamos juntos una Villavicencio más justa",
     style,
     TextPublicacion:
-      "Hoy junto a mi familia estamos nuevamente en la comuna 1. Velar por las necesidades de nuestros niños y adultos mayores.¡Gracias y mil gracias a quienes hacen esto posible nuevamente!., Sígamos construyendo ciudad juntos. Feliz navidad 🎄 #unanuevamaneradeservir",
+      "Hoy junto a mi familia estamos nuevamente en la comuna 1. Velar por las necesidades de nuestros niños y adultos mayores.¡Gracias y mil gracias a quienes hacen esto posible nuevamente!",
   },
   /*  {
     src: "https://www.instagram.com/p/CpwO45vAYPm/embed",
@@ -79,6 +92,7 @@ const myIframes = [
 const Proyectos = (props: any) => {
   return (
     <div
+      id="proyectos"
       style={{
         textAlign: "center",
       }}
@@ -128,6 +142,8 @@ const Proyectos = (props: any) => {
           >
             <Suspense fallback={<div>Loading...</div>}>
               <IgCard
+                publicacion={iframe.publicacion}
+                title={iframe.title}
                 source={iframe.src}
                 textPublicacion={iframe.TextPublicacion}
               />

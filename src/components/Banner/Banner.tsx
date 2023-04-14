@@ -17,7 +17,7 @@ export const Banner = () => {
   }, [flipped]);
 
   return (
-    <section className="banner" id="home">
+    <section id = "inicio" className="banner">
       <section
         style={{
           width: "95%",

@@ -80,7 +80,7 @@ const styleContainer = {
 
 export const CarouselComponent = (props: any) => {
   return (
-    <>
+    <section id = "enfoques">
       <h1
         style={{
           width: "98%",
@@ -170,6 +170,6 @@ export const CarouselComponent = (props: any) => {
           </div>
         ))}
       </Carousel>
-    </>
+    </section>
   );
 };

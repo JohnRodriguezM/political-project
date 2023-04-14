@@ -153,10 +153,13 @@ const UserAdmin = () => {
                     <tr>
                       <th>Id</th>
                       <th>Nombre</th>
+                      <th>Edad</th>
+                      <th>Cédula</th>
+                      <th>Dirección</th>
+                      <th>Número teléfono</th>
                       <th>Email</th>
-                      <th>Telefono</th>
-                      <th>Mensaje</th>
-                      <th>(Apoyo)</th>
+                      <th>Usuario de Redes</th>
+                      <th>Manera de apoyar</th>
                       <th>Eliminar</th>
                     </tr>
                   </thead>
@@ -170,22 +173,31 @@ const UserAdmin = () => {
                           <p>{item.nombreCompleto}</p>
                         </td>
                         <td>
-                          <a href={`mailto:${item.email}`}>{item.email}</a>
+                          <p> {item.edad} </p>
+                        </td>
+                        <td>
+                          <p> {item.cedula} </p>
+                        </td>
+                        <td>
+                          <p> {item.direccion} </p>
                         </td>
                         <td>
                           <a
-                            href={`https://wa.me/${item.contacto}`}
+                            href={`https://wa.me/${item.numTel}`}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {item.contacto}
+                            {item.numTel}
                           </a>
                         </td>
                         <td>
-                          <p>{item.mensaje}</p>
+                          <a href={`mailto:${item.email}`}>{item.email}</a>
                         </td>
                         <td>
-                          <p>{item.apoyo ? "Si" : "No"}</p>
+                          <p> {item.usuarioRedes} </p>
+                        </td>
+                        <td>
+                          <p>{item.comoPodriasAyudar}</p>
                         </td>
                         <td>
                           <Button
@@ -208,113 +220,6 @@ const UserAdmin = () => {
       )}
 
       {/*-----------------------*/}
-
-      {data.length === 0 ? (
-        <section
-          style={{
-            textAlign: "center",
-          }}
-        >
-          <Accordion defaultActiveKey="1">
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>
-                Dashboard del administrador - Registro para Newsletter
-              </Accordion.Header>
-
-              <Accordion.Body>
-                <h5
-                  style={{
-                    textAlign: "center",
-                    marginTop: "2rem",
-                  }}
-                >
-                  No hay datos registro para newsletter actual, espera que
-                  alguien se suscriba
-                </h5>
-
-                <img
-                  style={{
-                    margin: "2rem auto",
-                    maxWidth: "300px",
-                    maxHeight: "300px",
-                  }}
-                  src="https://i.pinimg.com/originals/c8/9b/dd/c89bddfb7d8e8488243fa150fbf84a0f.gif"
-                  alt=""
-                />
-                <br />
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </section>
-      ) : (
-        <Accordion defaultActiveKey="1">
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>
-              Dashboard del administrador - Registro para Newsletter
-            </Accordion.Header>
-            <Accordion.Body>
-              <h6
-                style={{
-                  textAlign: "center",
-                  marginBottom: "2rem",
-                }}
-              >
-                Esta tabla copia los elementos de la tabla general de usuarios
-                de la parte superior, en consecuencia si eliminas un usario acá
-                lo eliminarás también de la tabla general
-                <br /> <br />
-                <p>Usarios que autorizaron el newsletter:</p>
-              </h6>
-
-              <div
-                style={{
-                  overflowY: "scroll",
-                  margin: "5rem auto 2rem auto",
-                  height: "100%",
-                }}
-                className="table-responsive"
-              >
-                <Table striped bordered hover>
-                  <thead>
-                    <tr>
-                      <th>Email</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {data.map(
-                      (item: any) =>
-                        item.apoyo === "on" && (
-                          <tr key={item.id}>
-                            <td>
-                              <p>{item.nombreCompleto}</p>
-                            </td>
-                            <td>
-                              <a href={`mailto:${item.email}`}>{item.email}</a>
-                            </td>
-                            <td>
-                              <Button
-                                variant="danger"
-                                onClick={() => {
-                                  eliminarRegistroPorId(item.id, setData);
-                                }}
-                              >
-                                X
-                              </Button>
-                            </td>
-                          </tr>
-                        )
-                    )}
-                  </tbody>
-                </Table>
-
-                <Button variant="danger" onClick={copyToClipboard}>
-                  Copiar todos los emails al portapapeles
-                </Button>
-              </div>
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-      )}
 
       <Accordion defaultActiveKey="1">
         <Accordion.Item eventKey="0">

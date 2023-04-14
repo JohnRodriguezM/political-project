@@ -39,7 +39,7 @@ function Footer() {
           <a target="_blank" href="https://github.com/JohnRodriguezM">
             Contacto del Desarrollador
           </a>
-          <a href="#">Derechos reservados</a>
+          {/*<a href="#">Derechos reservados</a>*/}
         </div>
       </div>
     </footer>

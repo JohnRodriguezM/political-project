@@ -41,6 +41,7 @@ function App() {
           path="/"
           element={
             <>
+          
               <NavBar />
               <Banner />
               <CarouselComponent />

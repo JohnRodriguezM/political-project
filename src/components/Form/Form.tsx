@@ -6,18 +6,18 @@ import { crearRegistro, fecthData } from "../../backend/supabase/client";
 
 const initialFormState = {
   nombreCompleto: "",
+  edad: "",
+  cedula: "",
+  direccion: "",
+  numTel: "",
   email: "",
-  mensaje: "",
-  contacto: "",
-  apoyo: false,
+  usuarioRedes: "",
+  comoPodriasAyudar: "",
 };
 
 export const Contact = () => {
-
   const [form, setForm] = useState(initialFormState);
   const [status, setStatus] = useState(false);
-
-
 
   const handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -39,9 +39,7 @@ export const Contact = () => {
   };
 
   return (
-    <>
-
-
+    <section id = "unetenos">
       <h2
         style={{
           width: "98%",
@@ -82,6 +80,39 @@ export const Contact = () => {
                   type="text"
                   name="nombreCompleto"
                 />
+                <label>Edad</label>
+                <input
+                  value={form.edad}
+                  required
+                  onChange={handleChange}
+                  type="text"
+                  name="edad"
+                />
+                <label>Cedula</label>
+                <input
+                  value={form.cedula}
+                  required
+                  onChange={handleChange}
+                  type="text"
+                  name="cedula"
+                />
+                <label>Dirección</label>
+                <input
+                  value={form.direccion}
+                  required
+                  onChange={handleChange}
+                  type="text"
+                  name="direccion"
+                />
+                <label>Numero de telefono</label>
+                <input
+                  value={form.numTel}
+                  required
+                  onChange={handleChange}
+                  type="text"
+                  name="numTel"
+                />
+
                 <label>Email</label>
                 <input
                   value={form.email}
@@ -90,31 +121,19 @@ export const Contact = () => {
                   type="email"
                   name="email"
                 />
-                <label>Mensaje</label>
-                <textarea
-                  value={form.mensaje}
-                  onChange={handleChange}
-                  name="mensaje"
-                />
-                <label>Contacto</label>
+                <label>Usuario de redes</label>
                 <input
-                  value={form.contacto}
+                  value={form.usuarioRedes}
                   required
                   onChange={handleChange}
                   type="text"
-                  name="contacto"
+                  name="usuarioRedes"
                 />
-
-                <Form.Check
-                  checked={form.apoyo}
-                  style={{
-                    marginTop: "1rem",
-                  }}
+                <label>Como podrías apoyar</label>
+                <textarea
+                  value={form.comoPodriasAyudar}
                   onChange={handleChange}
-                  name="apoyo"
-                  type="switch"
-                  id="custom-switch"
-                  label="¿Quieres que te contactemos?"
+                  name="comoPodriasAyudar"
                 />
                 <Button variant="primary" type="submit">
                   {status ? "Enviado" : "Enviar"}
@@ -124,7 +143,7 @@ export const Contact = () => {
           </Row>
         </Container>
       </section>
-    </>
+    </section>
   );
 };
 

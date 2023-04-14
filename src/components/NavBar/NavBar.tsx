@@ -16,7 +16,7 @@ import navIcon2 from '../../assets/img/nav-icon2.svg'
 import navIcon3 from '../../assets/img/nav-icon3.svg'*/
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
-
+import bio from '../../bio.pdf'
 function BasicExample() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -112,23 +112,23 @@ function BasicExample() {
             transition={{ duration: 0.8 }}
           >
             <Nav className="me-auto navbar-text">
-              <Nav.Link id="inicio" href="#inicio">
+              <Nav.Link href="#inicio">
                 Inicio
               </Nav.Link>
               {/* <Nav.Link href="#conocenos">Conocenos</Nav.Link>*/}
               {/*<Nav.Link href="#proyectos">Proyectos</Nav.Link>*/}
-              <Nav.Link href="#apoyanos">Únetenos</Nav.Link>
-              <Nav.Link href="#newsletter">Apóyanos</Nav.Link>
+              <Nav.Link href="#unetenos">Únetenos</Nav.Link>
+              <Nav.Link href="#apoyanos">Apóyanos</Nav.Link>
 
               <NavDropdown title="Conocenos" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.2">
+                <NavDropdown.Item href="#enfoques">
                   Nuestros enfoques de trabajo
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
+                <NavDropdown.Item href="#proyectos">
                   Nuestros proyectos
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.1">
+                <NavDropdown.Item href={bio} target="_blank">
                   Mi biografía
                 </NavDropdown.Item>
               </NavDropdown>
