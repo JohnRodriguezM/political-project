@@ -1,4 +1,9 @@
 /* Define el contenedor principal */
+.section-container{
+  width: 95%;
+  margin: 0 auto;
+}
+
 .flip-container {
   perspective: 1000px;
   width: 335px;
@@ -37,8 +42,9 @@
 
 .front {
   border-radius: 50%;
-  background-image: url('../../assets/profile.png');
-  background-size: cover;
+  padding-top: 25px;
+  background-image: url('../../assets/juanMainProfile.png');
+  background-size: contain;
   background-position: center;
 
 }

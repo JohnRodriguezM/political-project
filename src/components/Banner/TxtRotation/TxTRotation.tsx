@@ -1,13 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-import "./Banner.css";
-
+import "../Banner.css";
 export function TextRotation() {
-  const [loopNum, setLoopNum] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState("");
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
+  const [loopNum, setLoopNum] = useState<number>(0);
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+  const [text, setText] = useState<string>("");
+  const [delta, setDelta] = useState<number>(300 - Math.random() * 100);
+  const [index, setIndex] = useState<number>(1);
   const toRotate = ["Político", "Llanero", "Abogado"];
   const period = 2200;
 

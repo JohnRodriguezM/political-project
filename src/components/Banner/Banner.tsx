@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { SlArrowRightCircle } from "react-icons/sl";
 
+import { TextRotation } from "./TxtRotation/TxTRotation";
+
 import "./Banner.css";
 
-import { TextRotation } from "./TxtRotation";
-
-export const Banner = () => {
-  const [flipped, setFlipped] = useState(false);
+export const Banner = (props: any) => {
+  const [flipped, setFlipped] = useState<boolean>(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -17,27 +17,19 @@ export const Banner = () => {
   }, [flipped]);
 
   return (
-    <section id = "inicio" className="banner">
-      <section
-        style={{
-          width: "95%",
-          margin: "0 auto",
-        }}
-      >
+    <section id="inicio" className="banner">
+      <section className="section-container">
         <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
-            {/*<span className="tagline">Bienvenidos</span>*/}
             <h1
               style={{
                 fontSize: "2.2rem",
                 fontWeight: "bold",
                 filter: "drop-shadow(0px 0px 1.2px #1da1f2)",
-                //textAlign: "justify",
               }}
             >
-              {`Juan José Cubides Monje: `} {/*<br />*/}
+              {`Juan José Cubides Monje: `}
               <TextRotation />
-              {/* politico, llanero, abogado, activista, ambientalista */}
             </h1>
             <p
               style={{
@@ -52,11 +44,10 @@ export const Banner = () => {
             </p>
 
             <button
-               style={{
+              style={{
                 fontSize: "1rem",
                 fontWeight: "bold",
                 filter: "drop-shadow(0px 0px 1.2px #1da1f2)",
-                //textAlign: "justify",
               }}
               onClick={() => {
                 console.log("Hola, vamos a conectar");

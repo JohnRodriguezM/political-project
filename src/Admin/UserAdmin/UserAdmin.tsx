@@ -4,7 +4,7 @@ import Table from "react-bootstrap/Table";
 import {
   eliminarRegistroPorId,
   eliminarTodosLosRegistros,
-  fecthDataDb,
+  fetchDataDb,
   signOut,
 } from "../../backend/supabase/client";
 import { btn } from "./styles";
@@ -36,7 +36,7 @@ const UserAdmin: FC = (props: any) => {
   useEffect(() => {
     console.log("Se ha iniciado sesión como Admin");
     console.log(data);
-    fecthDataDb(setData);
+    fetchDataDb(setData);
   }, []);
 
   return (
