@@ -1,39 +1,48 @@
-import React, { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
+import { Accordion, Button } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
 import {
   eliminarRegistroPorId,
   eliminarTodosLosRegistros,
-  fecthData,
+  fecthDataDb,
   signOut,
-} from "../backend/supabase/client";
+} from "../../backend/supabase/client";
+import { btn } from "./styles";
+import { AtomTable } from "../../Atoms/Table/Table";
 
-import { Accordion, Button } from "react-bootstrap";
-import Table from "react-bootstrap/Table";
-import EmailNewsletter from "./EmailNewsletter";
-import { Link, Route } from "react-router-dom";
+const thElements = [
+  "Id",
+  "Nombre",
+  "Edad",
+  "Cedula",
+  "Direccion",
+  "Telefono",
+  "Email",
+  "Usuario de redes",
+  "Como podrias ayudar",
+  "Eliminar",
+];
 
-const UserAdmin = () => {
+const UserAdmin: FC = (props: any) => {
   const [data, setData] = useState([]);
 
   function copyToClipboard() {
     const emails = data
       .map((usuario: any) => (usuario.apoyo === "on" ? usuario.email : null))
       .join("\n");
-
     navigator.clipboard.writeText(emails);
   }
 
   useEffect(() => {
-    console.log("Hola, vamos a conectar");
-    fecthData(setData);
+    console.log("Se ha iniciado sesión como Admin");
     console.log(data);
+    fecthDataDb(setData);
   }, []);
 
   return (
     <div>
       <Button
-        style={{
-          margin: "1rem 1rem 1rem 1rem",
-        }}
+        style={btn}
         onClick={() => {
           signOut();
         }}
@@ -148,71 +157,12 @@ const UserAdmin = () => {
                 }}
                 className="table-responsive"
               >
-                <Table striped bordered hover>
-                  <thead>
-                    <tr>
-                      <th>Id</th>
-                      <th>Nombre</th>
-                      <th>Edad</th>
-                      <th>Cédula</th>
-                      <th>Dirección</th>
-                      <th>Número teléfono</th>
-                      <th>Email</th>
-                      <th>Usuario de Redes</th>
-                      <th>Manera de apoyar</th>
-                      <th>Eliminar</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {data.map((item: any) => (
-                      <tr key={item.id}>
-                        <td>
-                          <p>{item.id}</p>
-                        </td>
-                        <td>
-                          <p>{item.nombreCompleto}</p>
-                        </td>
-                        <td>
-                          <p> {item.edad} </p>
-                        </td>
-                        <td>
-                          <p> {item.cedula} </p>
-                        </td>
-                        <td>
-                          <p> {item.direccion} </p>
-                        </td>
-                        <td>
-                          <a
-                            href={`https://wa.me/${item.numTel}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {item.numTel}
-                          </a>
-                        </td>
-                        <td>
-                          <a href={`mailto:${item.email}`}>{item.email}</a>
-                        </td>
-                        <td>
-                          <p> {item.usuarioRedes} </p>
-                        </td>
-                        <td>
-                          <p>{item.comoPodriasAyudar}</p>
-                        </td>
-                        <td>
-                          <Button
-                            variant="danger"
-                            onClick={() => {
-                              eliminarRegistroPorId(item.id, setData);
-                            }}
-                          >
-                            X
-                          </Button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
+                <AtomTable
+                  thRender={thElements}
+                  dataToRender={data}
+                  setData={setData}
+                  deleteFunction={eliminarRegistroPorId}
+                />
               </div>
             </Accordion.Body>
           </Accordion.Item>

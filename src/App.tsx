@@ -1,37 +1,32 @@
-import "./css/App.css";
-
-import NavBar from "./components/NavBar/NavBar";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Banner } from "./components/Banner";
-import { CarouselComponent } from "./components/Carousel/Carousel";
-import { Contact } from "./components/Form/Form";
-
-import { Routes, Route } from "react-router-dom";
-import UserAdmin from "./Admin/UserAdmin";
-import SignIn from "./Admin/SignIn/SignIn";
-import Footer from "./components/Footer/Footer";
-import { supabase } from "./backend/supabase/client";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { supabase } from "./backend/supabase/client";
+
+import UserAdmin from "./Admin/UserAdmin/UserAdmin";
+import SignIn from "./Admin/SignIn/SignIn";
 import Apoyo from "./components/Apoyo/Apoyo";
+import Footer from "./components/Footer/Footer";
+import NavBar from "./components/NavBar/NavBar";
 import Proyectos from "./components/Proyectos/Proyectos";
 
+import { Banner } from "./components/Banner";
+import { Contact } from "./components/Form/Form";
+import { CarouselComponent } from "./components/Carousel/Carousel";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const guardFunction = () => {
     supabase.auth.onAuthStateChange((event, session) => {
-      /*console.log(session);
-      console.log(event);*/
-      if (session) {
-        return navigate("/admin", {
-          replace: true,
-        });
-      }
-      return navigate("/", {
-        replace: true,
-      });
+      session
+        ? navigate("/admin", { replace: true })
+        : navigate("/", { replace: true });
     });
+  };
+
+  useEffect(() => {
+    guardFunction();
   }, []);
 
   return (
@@ -41,7 +36,6 @@ function App() {
           path="/"
           element={
             <>
-          
               <NavBar />
               <Banner />
               <CarouselComponent />
@@ -54,7 +48,6 @@ function App() {
         />
 
         <Route path="/signin-admin" element={<SignIn />} />
-
         <Route path="/admin" element={<UserAdmin />} />
       </Routes>
     </section>
