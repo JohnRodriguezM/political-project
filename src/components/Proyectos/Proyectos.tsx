@@ -6,6 +6,7 @@ import hola from "../../assets/JuanALotOfPeople.jpg";
 import hola2 from "../../assets/JUAN.jpg";
 import hola3 from "../../assets/villavomasjusta.jpg";
 import hola4 from "../../assets/1.jpg";
+import { CarouselAtom } from "../../Atoms/Carousel/Carousel";
 
 const IgCard = lazy(() =>
   import("./IgCard").then((module) => ({ default: module.InstagramCard }))
@@ -32,126 +33,65 @@ const responsive = {
   },
 };
 
-const style = {
-  width: "90%",
-  margin: "0 auto 0 2px",
-  maxWidth: "250px",
-  //height: "100%",
-  //maxHeight: "650px",
-  textAlign: "center",
+export const style = {
+  display: "flex",
+  margin: "30px auto",
+  backgroundColor: "#1da1f220",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "620px",
+  width: "96%",
+  minWidth: "350px",
+  maxWidth: "400px",
+  padding: "20px",
+  borderRadius: "15px",
 };
 
 const myIframes = [
   {
-    src: hola,
+    img: hola,
     publicacion:
       "https://www.instagram.com/p/CX15aebLsX5/?utm_source=ig_web_copy_link",
     title: "somos el puente entre la gente y el gobierno",
-    style,
-    TextPublicacion:
+    description:
       "Haciendo lo que más me gusta, somos el puente entre la gente que quiere ver a Villavicencio como una de las mejores ciudades del país.¡Gracias barrio la Reliquia! ¡Gracias a todos a quienes confían en nosotros!",
   },
   {
-    src: hola2,
+    img: hola2,
     publicacion:
       "https://www.instagram.com/reel/CoClVnejo4w/?utm_source=ig_web_copy_link",
     title:
       "Juntos podemos apostarle a un mejor futuro para nuestros niños y niñas",
-    style,
-    TextPublicacion:
+
+    description:
       "Juntos podemos apostarle a un mejor futuro para nuestros niños y niñas.Súmate a esta donaton y ayúdanos a llevar a los niños de Villavicencio sus útiles escolares antes de iniciar la jornada escolar.",
   },
   {
-    src: hola3,
+    img: hola3,
     publicacion:
       "https://www.instagram.com/p/Cafs0d7Fphl/?utm_source=ig_web_copy_link",
     title: "Mi mayor compromiso es con la gente",
-    style,
-    TextPublicacion:
+    description:
       "Hoy mi domingo lo comparto con ellos, de esto se trata de brindar oportunidades, de adquirir nuevos conocimientos, para avanzar y para que los llaneros alcancen sus sueños, juntos por una mejor Villavicencio",
   },
   {
-    src: hola4,
+    img: hola4,
     publicacion:
       "https://www.instagram.com/p/CX32P7srD4G/?utm_source=ig_web_copy_link",
     title: "Construyamos juntos una Villavicencio más justa",
-    style,
-    TextPublicacion:
+    description:
       "Hoy junto a mi familia estamos nuevamente en la comuna 1. Velar por las necesidades de nuestros niños y adultos mayores.¡Gracias y mil gracias a quienes hacen esto posible nuevamente!",
   },
-  /*  {
-    src: "https://www.instagram.com/p/CpwO45vAYPm/embed",
-    style,
-  },
-  {
-    src: "https://www.instagram.com/p/CpGFH8DpOza/embed",
-    style,
-  },*/
 ];
 
 const Proyectos = (props: any) => {
   return (
-    <div
-      id="proyectos"
-      style={{
-        textAlign: "center",
-      }}
-    >
-      <h2
-        style={{
-          width: "96%",
-          margin: "50px auto 45px auto",
-          textAlign: "center",
-          fontWeight: "bold",
-          letterSpacing: " 0.8px",
-          lineHeight: " 1",
-          display: "block",
-          fontSize: "2rem",
-          filter: "drop-shadow(0px 0px 1.2px #1da1f2)",
-        }}
-      >
-        Conoce parte de nuestro Trabajo Social
-      </h2>
-      <Carousel
-        className="carousel"
-        swipeable={false}
-        draggable={false}
-        showDots={true}
-        responsive={responsive}
-        ssr={true} // means to render carousel on server-side.
-        infinite={true}
-        autoPlay={props.deviceType !== "mobile" ? true : false}
-        autoPlaySpeed={6500}
-        keyBoardControl={true}
-        customTransition="all .5"
-        transitionDuration={500}
-        containerClass="carousel-container"
-        deviceType={props.deviceType}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
-      >
-        {myIframes.map((iframe, index) => (
-          <section
-            key={index}
-            style={{
-              width: "100%",
-              height: "100%",
-              margin: "45px auto",
-              textAlign: "center",
-            }}
-          >
-            <Suspense fallback={<div>Loading...</div>}>
-              <IgCard
-                publicacion={iframe.publicacion}
-                title={iframe.title}
-                source={iframe.src}
-                textPublicacion={iframe.TextPublicacion}
-              />
-            </Suspense>
-          </section>
-        ))}
-      </Carousel>
-    </div>
+    <CarouselAtom
+      form={myIframes}
+      responsive={responsive}
+      styleContainer={style}
+      title="Conoce nuestro trabajo social"
+    />
   );
 };
 
