@@ -78,25 +78,39 @@ export const UserAdmin: FC = (props: any) => {
                 </li>
                 <li>
                   <p>
-                    <strong>Email</strong>: Correo electronico del usuario, al
-                    click se abre el correo electronico
+                    <strong>Edad</strong>: Edad del usuario
                   </p>
                 </li>
                 <li>
                   <p>
-                    <strong>Telefono</strong>: Numero de contacto del usuario,
-                    al click se contacta por whatsapp
+                    <strong>Cedula</strong>: Cedula del usuario
                   </p>
                 </li>
                 <li>
                   <p>
-                    <strong>Mensaje</strong>: Mensaje del usuario
+                    <strong>Direccion</strong>: Direccion del usuario
                   </p>
                 </li>
                 <li>
                   <p>
-                    <strong>(Apoyo)</strong>: Si el usuario desea apoyar a la
-                    campaña y que lo contactemos
+                    <strong>Telefono</strong>: Telefono del usuario, al click permite contactar por (whatsapp)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Email</strong>: Email del usuario, al click permite enviar un correo
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Usuario de redes</strong>: Usuario de redes del
+                    usuario
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Como podrias ayudar</strong>: Como podria ayudar el
+                    usuario
                   </p>
                 </li>
               </ul>
@@ -200,4 +214,3 @@ export const UserAdmin: FC = (props: any) => {
     </div>
   );
 };
-
