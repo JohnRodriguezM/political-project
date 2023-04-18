@@ -11,7 +11,7 @@ import "./SignIn.css";
 import { formReducer, initialState } from "./Reducers/Reducer";
 import { FormActions } from "./Reducers/Actions";
 import { btn, colStyles, img } from "./Reducers/styles";
-const SignIn = (props: any) => {
+export const SignIn = (props: any) => {
   const [{ email, password }, dispatch] = useReducer(formReducer, initialState);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,4 +69,4 @@ const SignIn = (props: any) => {
   );
 };
 
-export default SignIn;
+

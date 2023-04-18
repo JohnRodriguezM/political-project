@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
+
+import { crearRegistro } from "../../backend/supabase/client";
 
 import contactImg from "../../assets/img/contact-img.svg";
-import { crearRegistro, fecthData } from "../../backend/supabase/client";
 
 const initialFormState = {
   nombreCompleto: "",
@@ -39,7 +40,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id = "unetenos">
+    <section id="unetenos">
       <h2
         style={{
           width: "98%",

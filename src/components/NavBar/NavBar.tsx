@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 import "./NavBar.css";
 import Container from "react-bootstrap/Container";
@@ -11,13 +11,10 @@ import { SlSocialInstagram } from "react-icons/sl";
 import logo from "../../assets/LOGO-JUAN.png";
 import { Button, NavDropdown } from "react-bootstrap";
 
-/*import navIcon1 from '../../assets/img/nav-icon1.svg'
-import navIcon2 from '../../assets/img/nav-icon2.svg'
-import navIcon3 from '../../assets/img/nav-icon3.svg'*/
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import bio from '../../bio.pdf'
-function BasicExample() {
+export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = () => {
@@ -170,20 +167,4 @@ function BasicExample() {
       </Container>
     </Navbar>
   );
-}
-
-export default BasicExample;
-
-{
-  /*<div className="social-icons">
-                <a href="">
-                  <SlSocialTwitter className="twitter-icon" />
-                </a>
-                <a href="">
-                  <SlSocialInstagram className="instagram-icon" />
-                </a>
-                <a href="">
-                  <SlSocialFacebook className="facebook-icon" />
-                </a>
-              </div>*/
 }

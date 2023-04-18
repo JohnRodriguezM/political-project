@@ -4,7 +4,7 @@ const text = `No somos solo una campaña, somos un movimiento de personas
 comprometidas a hacer una diferencia real en nuestra Ciudad. Tu
 donación nos permitirá llegar a más personas y hacer una verdadera
 contribución al cambio.`;
-const Apoyo = (props: any) => {
+export const Apoyo = (props: any) => {
   return (
     <div id="apoyanos">
       <h1 className="title">¡Ayúdame a hacer la diferencia!</h1>
@@ -29,4 +29,3 @@ const Apoyo = (props: any) => {
   );
 };
 
-export default Apoyo;

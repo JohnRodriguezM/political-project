@@ -23,7 +23,7 @@ const thElements = [
   "Eliminar",
 ];
 
-const UserAdmin: FC = (props: any) => {
+export const UserAdmin: FC = (props: any) => {
   const [data, setData] = useState([]);
 
   function copyToClipboard() {
@@ -201,4 +201,3 @@ const UserAdmin: FC = (props: any) => {
   );
 };
 
-export default UserAdmin;
