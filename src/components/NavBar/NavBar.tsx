@@ -13,7 +13,7 @@ import { Button, NavDropdown } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
-import bio from '../../bio.pdf'
+import bio from '../../BIOGRAFÍA.pdf'
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -45,9 +45,6 @@ export function NavBar() {
   return (
     <Navbar
       style={{
-        /*position: "fixed",
-        width: "100%",
-        zIndex: 100,*/
         backgroundColor: "#fff",
         transition: "all 0.5s ease-in-out",
         boxShadow: "0 0 10px rgba(0,0,0,0.8)",
@@ -117,7 +114,7 @@ export function NavBar() {
               <Nav.Link href="#unetenos">Únetenos</Nav.Link>
               <Nav.Link href="#apoyanos">Apóyanos</Nav.Link>
 
-              <NavDropdown title="Conocenos" id="basic-nav-dropdown">
+              <NavDropdown title="Conócenos" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#enfoques">
                   Nuestros enfoques de trabajo
                 </NavDropdown.Item>

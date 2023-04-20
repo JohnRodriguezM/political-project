@@ -43,7 +43,7 @@ export const myIframes = [
     img: hola,
     publicacion:
       "https://www.instagram.com/p/CX15aebLsX5/?utm_source=ig_web_copy_link",
-    title: "somos el puente entre la gente y el gobierno",
+    title: "Somos el puente entre la gente y el gobierno",
     description:
       "Haciendo lo que más me gusta, somos el puente entre la gente que quiere ver a Villavicencio como una de las mejores ciudades del país.¡Gracias barrio la Reliquia! ¡Gracias a todos a quienes confían en nosotros!",
   },

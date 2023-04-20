@@ -89,7 +89,7 @@ export const Contact = () => {
                   type="text"
                   name="edad"
                 />
-                <label>Cedula</label>
+                <label>Cédula</label>
                 <input
                   value={form.cedula}
                   required
@@ -105,7 +105,7 @@ export const Contact = () => {
                   type="text"
                   name="direccion"
                 />
-                <label>Numero de telefono</label>
+                <label>Número de teléfono</label>
                 <input
                   value={form.numTel}
                   required
@@ -130,7 +130,7 @@ export const Contact = () => {
                   type="text"
                   name="usuarioRedes"
                 />
-                <label>Como podrías apoyar</label>
+                <label>¿Como podrías apoyar?</label>
                 <textarea
                   value={form.comoPodriasAyudar}
                   onChange={handleChange}
