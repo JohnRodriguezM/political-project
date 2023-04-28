@@ -13,7 +13,7 @@ import { Button, NavDropdown } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
-import bio from '../../BIOGRAFÍA.pdf'
+import bio from "../../BIOGRAFÍA.pdf";
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -27,13 +27,14 @@ export function NavBar() {
         setScrolled(false);
       } else {
         setScrolled(true);
-        setTimeout(() => {
-          setScrolled(false);
-        }, 600);
       }
       prevScrollpos = currentScrollPos;
     };
   };
+
+  const handleNavLinkClick = () => {
+    setScrolled(true);
+  }
 
   useEffect(() => {
     handleScroll();
@@ -51,7 +52,7 @@ export function NavBar() {
         borderBottomRightRadius: "8px",
         borderBottomLeftRadius: "8px",
 
-        //transform: scrolled ? "translateY(-100%)" : "translateY(0)",
+        transform: scrolled ? "translateY(-100%)" : "translateY(0)",
       }}
       bg="light"
       expand="lg"
@@ -106,34 +107,38 @@ export function NavBar() {
             transition={{ duration: 0.8 }}
           >
             <Nav className="me-auto navbar-text">
-              <Nav.Link href="#inicio">
-                Inicio
-              </Nav.Link>
-              {/* <Nav.Link href="#conocenos">Conocenos</Nav.Link>*/}
-              {/*<Nav.Link href="#proyectos">Proyectos</Nav.Link>*/}
-              <Nav.Link href="#unetenos">Únetenos</Nav.Link>
-              <Nav.Link href="#apoyanos">Apóyanos</Nav.Link>
+              <Nav.Link
+                onClick={handleNavLinkClick}
+              href="#inicio">Inicio</Nav.Link>
+              <Nav.Link
+                onClick={handleNavLinkClick}
+              href="#unetenos">Únetenos</Nav.Link>
+              <Nav.Link
+                onClick={handleNavLinkClick}
+              href="#apoyanos">Apóyanos</Nav.Link>
 
-              <NavDropdown title="Conócenos" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#enfoques">
+              <NavDropdown
+              
+              title="Conócenos" id="basic-nav-dropdown">
+                <NavDropdown.Item
+                  onClick={handleNavLinkClick}
+                href="#enfoques">
                   Nuestros enfoques de trabajo
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#proyectos">
+                <NavDropdown.Item
+                  onClick={handleNavLinkClick}
+                href="#proyectos">
                   Nuestros proyectos
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href={bio} target="_blank">
+                <NavDropdown.Item
+                  onClick={handleNavLinkClick}
+                href={bio} target="_blank">
                   Mi biografía
                 </NavDropdown.Item>
               </NavDropdown>
 
               <span className="text">
-                {/*<div className="social-icons">
-                <a href="">
-                  <SlSocialTwitter className="twitter-icon" />
-                </a>
-          */}
-
                 <Link to="/signin-admin">
                   <Button
                     style={{
