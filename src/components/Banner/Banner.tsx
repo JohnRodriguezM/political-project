@@ -5,6 +5,7 @@ import { SlArrowRightCircle } from "react-icons/sl";
 import { TextRotation } from "./TxtRotation/TxTRotation";
 
 import "./Banner.css";
+import { motion } from 'framer-motion';
 
 export const Banner = (props: any) => {
   const [flipped, setFlipped] = useState<boolean>(false);
@@ -17,7 +18,14 @@ export const Banner = (props: any) => {
   }, [flipped]);
 
   return (
-    <section id="inicio" className="banner">
+    <motion.section
+  
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+
+      transition={{ duration: 1.2 }}
+    
+    id="inicio" className="banner">
       <section className="section-container">
         <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
@@ -63,6 +71,6 @@ export const Banner = (props: any) => {
           </Col>
         </Row>
       </section>
-    </section>
+    </motion.section>
   );
 };

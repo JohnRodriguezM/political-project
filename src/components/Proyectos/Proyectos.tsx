@@ -13,6 +13,7 @@ export const Proyectos = (props: any) => {
     <>
       <Suspense fallback={<div>Loading...</div>}>
         <CarouselAtom
+          id="proyectos"
           form={myIframes}
           responsive={responsive}
           styleContainer={style}

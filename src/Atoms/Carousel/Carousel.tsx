@@ -3,10 +3,10 @@ import "react-multi-carousel/lib/styles.css";
 import "./Carousel.css";
 
 export const CarouselAtom = (props: any) => {
-  const {form, responsive, styleContainer, title} = props;
+  const {form, responsive, styleContainer, title, id} = props;
 
   return (
-    <section id="enfoques">
+    <section id={id}>
       <h1
         style={{
           width: "98%",

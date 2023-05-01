@@ -15,6 +15,7 @@ export const CarouselComponent = (props: any) => {
     <>
       <Suspense fallback={<div>Loading...</div>}>
         <CarouselAtom
+          id="enfoques"
           form={form}
           responsive={responsive}
           styleContainer={styleContainer}

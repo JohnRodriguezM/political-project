@@ -15,34 +15,8 @@ import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import bio from "../../BIOGRAFÍA.pdf";
 export function NavBar() {
-  const [scrolled, setScrolled] = useState(false);
-
-  const handleScroll = () => {
-    let prevScrollpos: any = window.pageYOffset;
-    //console.log(`1 ${prevScrollpos}`);
-    window.onscroll = function () {
-      let currentScrollPos = window.pageYOffset;
-      //console.log(`2 ${currentScrollPos}`);
-      if (prevScrollpos > currentScrollPos) {
-        setScrolled(false);
-      } else {
-        setScrolled(true);
-      }
-      prevScrollpos = currentScrollPos;
-    };
-  };
-
-  const handleNavLinkClick = () => {
-    setScrolled(true);
-  }
-
-  useEffect(() => {
-    handleScroll();
-    return () => {
-      window.onscroll = null;
-    };
-  }, []);
-
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
   return (
     <Navbar
       style={{
@@ -52,16 +26,17 @@ export function NavBar() {
         borderBottomRightRadius: "8px",
         borderBottomLeftRadius: "8px",
 
-        transform: scrolled ? "translateY(-100%)" : "translateY(0)",
+        /*transform: scrolled ? "translateY(-100%)" : "translateY(0)",*/
       }}
       bg="light"
       expand="lg"
+      expanded={isOpen}
     >
       <Container
-        style={{
+      /*style={{
           maxWidth: "95%",
           display: scrolled ? "none" : "flex",
-        }}
+        }}*/
       >
         <Navbar.Brand
           href="#home"
@@ -90,6 +65,7 @@ export function NavBar() {
             border: "1px solid #000",
           }}
           aria-controls="basic-navbar-nav"
+          onClick={toggle}
         >
           <span id="lines" className="navbar-toggler-icon"></span>
         </Navbar.Toggle>
@@ -107,33 +83,28 @@ export function NavBar() {
             transition={{ duration: 0.8 }}
           >
             <Nav className="me-auto navbar-text">
+              <Nav.Link onClick={toggle} href="#inicio">
+                Inicio
+              </Nav.Link>
               <Nav.Link
-                onClick={handleNavLinkClick}
-              href="#inicio">Inicio</Nav.Link>
-              <Nav.Link
-                onClick={handleNavLinkClick}
-              href="#unetenos">Únetenos</Nav.Link>
-              <Nav.Link
-                onClick={handleNavLinkClick}
-              href="#apoyanos">Apóyanos</Nav.Link>
+                onClick={toggle}
+                href="#unetenos"
+              >
+                Únetenos
+              </Nav.Link>
+              <Nav.Link onClick={toggle} href="#apoyanos">
+                Apóyanos
+              </Nav.Link>
 
-              <NavDropdown
-              
-              title="Conócenos" id="basic-nav-dropdown">
-                <NavDropdown.Item
-                  onClick={handleNavLinkClick}
-                href="#enfoques">
+              <NavDropdown title="Conócenos" id="basic-nav-dropdown">
+                <NavDropdown.Item onClick={toggle} href="#enfoques">
                   Nuestros enfoques de trabajo
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                  onClick={handleNavLinkClick}
-                href="#proyectos">
+                <NavDropdown.Item onClick={toggle} href="#proyectos">
                   Nuestros proyectos
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item
-                  onClick={handleNavLinkClick}
-                href={bio} target="_blank">
+                <NavDropdown.Item onClick={toggle} href={bio} target="_blank">
                   Mi biografía
                 </NavDropdown.Item>
               </NavDropdown>
